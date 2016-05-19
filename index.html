@@ -5,109 +5,22 @@
 	<script type="text/javascript" src="js/min/script.js" defer></script>
 </head>
 <body>
-	<ul class="card-grid">
-	  <li class="card-grid__item">
-	    <div class="flip-container">
-	      <div class="card--front">
-	        <div class="card__content">
-	          <div class="card__header">
-	            <div class="card__day">Mandag</div>
-	            <div class="card__date">04.06.16</div>
-	          </div>
-	          <!-- bx-slider - weekend, snacks and dessert card... Markup same as implemented on arla.dk recipes-->
-	          <div class="bx-wrapper">
-	            <div class="bx-viewport">
-	              <!-- Maybe rename class, ask BE-->
-	              <ul class="thumbnail-teaser">
-	                <!-- Inline styling from bx slider plugin...-->
-	                <li style="float: left; list-style: none; position: relative; width: 100%;">
-	                  <!-- Image  -->
-	                  <div class="card__image-wrap">
-	                    <button type="button" class="card__button--remove"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/remove.svg"></button>
-	                    <button type="button" class="card__button--favorite is-favorite"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/heart_favorite_like_plus_white.svg"></button>
-	                    <div class="card__image"><img src="https://unsplash.it/1080/666?image=889">
-	                      <!--img(src="http://dummyimage.com/1080x666/000/fff")-->
+	<ul class="card-item-grid">
+		<li class="card-item-wrapper">
+			<div class="card-item">
+				<div class="card-item__header">
+					<img class="card-item__header-img" src="#" alt="" />
+				</div>
+				<div class="card-item__progressbar">
 
+				</div>
+				<div class="card-item__content">
 
-
-	                    </div>
-	                  </div><a href="/" class="card__link">
-	                    <div class="card__category">Hovedret</div>
-	                    <!-- Generic from arla.dk recipes-->
-	                    <p class="cooking-time">45 min </p>
-	                    <p class="card__text">Boller i karry med æblesalat</p></a>
-	                </li>
-	              </ul>
-	            </div>
-	            <!-- bx slider controls-->
-	            <div class="bx-controls bx-has-controls-direction bx-has-pager">
-	              <!-- bx Slider controls-->
-	              <div class="bx-controls-direction"><a href="" class="bx-prev"></a><a href="" class="bx-next"> </a></div>
-	              <!-- bx Slider pager    -->
-	              <div class="bx-pager bx-default-pager">
-	                <div class="bx-pager-item"><a href="" data-slide-index="0" class="bx-pager-link active">1</a></div>
-	                <div class="bx-pager-item"><a href="" data-slide-index="1" class="bx-pager-link">2</a></div>
-	                <div class="bx-pager-item"><a href="" data-slide-index="2" class="bx-pager-link">3 </a></div>
-	              </div>
-	            </div>
-	          </div></div>
-	        <div class="card__buttons">
-	          <button type="button" class="card__button--recommend"> <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/recommend.svg"><span>Ny anbefaling</span></button>
-	          <button type="button" class="card__button--change js-show-back"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/change.svg"><span>Udskift    </span></button>
-	        </div>
-	      </div>
-	      <!-- Back of card with search              -->
-	      <div class="card--back">
-	        <div class="card__content">
-	          <div class="card-search__header">
-	            <button type="button" class="card-search__header-button js-show-front"> <span>Luk </span><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/remove.svg"></button>
-	          </div>
-	          <div class="card-search__search">
-	            <!-- search-form - markup from arla.dk-->
-	            <div role="search" class="search-form">
-	              <form action="/WebAppsSearch/SearchBlockType/RedirectToSearchPage" method="post">
-	                <input id="queryInput" name="queryInput" type="search" placeholder="Find opskrift" autocomplete="off" class="search-input ac_input">
-	                <input name="searchLanguage" type="hidden" value="da">
-	                <input name="defaultFacet" type="hidden" value="3">
-	                <button id="searchSubmit" type="submit" name="searchSubmit" class="search-btn"></button>
-	              </form>
-	            </div>
-	          </div>
-	          <ul class="card-search__list">
-	            <!-- Mixin for search result list-->
-	            <!-- End search result list mixin      -->
-	                            <div class="card-search__item js-show-front is-favorite">
-	                              <div class="card-search__image"><img src="https://unsplash.it/1080/666?image=889"></div>
-	                              <div class="card-search__text"><span>Klassisk boller i karry</span></div></div>
-	                            <div class="card-search__item js-show-front">
-	                              <div class="card-search__image"><img src="https://unsplash.it/1080/666?image=889"></div>
-	                              <div class="card-search__text"><span>Boller i karry med porrer og mangofrugt</span></div></div>
-	                            <div class="card-search__item js-show-front">
-	                              <div class="card-search__image"><img src="https://unsplash.it/1080/666?image=889"></div>
-	                              <div class="card-search__text"><span>Boller i karry med æblesalat</span></div></div>
-	                            <div class="card-search__item js-show-front is-favorite">
-	                              <div class="card-search__image"><img src="https://unsplash.it/1080/666?image=889"></div>
-	                              <div class="card-search__text"><span>Gylden suppe - af en rest boller i karry</span></div></div>
-	                            <div class="card-search__item js-show-front">
-	                              <div class="card-search__image"><img src="https://unsplash.it/1080/666?image=889"></div>
-	                              <div class="card-search__text"><span>Kylling i karry med gulerodssalat</span></div></div>
-	          </ul>
-	          <ul class="card-search__pagination">
-	            <li>
-	              <button type="button" disabled="disabled" class="card-search__pagination-button--prev"></button>
-	            </li>
-	            <li class="is-active"> <span>1</span></li>
-	            <li><span>2</span></li>
-	            <li><span>3</span></li>
-	            <li><span>4</span></li>
-	            <li><span>5</span></li>
-	            <li>
-	              <button type="button" class="card-search__pagination-button--next"></button>
-	            </li>
-	          </ul>
-	        </div>
-	      </div>
-	    </div>
-	  </li>
+				</div>
+				<div class="card-item__buttons">
+					<button class="btn-ingredienser" type="button" name="button">Send</button><button class="btn-ingredienser" type="button" name="button">Ingredienser</button>
+				</div>
+			</div>
+		</li>
 	</ul>
 </body>

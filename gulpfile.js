@@ -19,6 +19,7 @@ gulp.task('compress', function() {
     .pipe(gulp.dest('js/min'));
 });
 
+
 // Opens a new browser that sync on changes
 gulp.task('browser-sync', function() {
    browserSync.init({

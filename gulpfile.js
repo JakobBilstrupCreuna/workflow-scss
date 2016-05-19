@@ -7,8 +7,8 @@ var browserSync = require('browser-sync').create();
 // Runs compiler for SCSS with autoprefixer
 gulp.task('styles', function () {
   return gulp.src('scss/**/*.scss')
-		.pipe(autoprefixer())
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(gulp.dest('stylesheets/'));
 });
 

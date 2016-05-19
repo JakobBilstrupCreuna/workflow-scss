@@ -1,3 +1,1656 @@
-*{
-	background-color: #be0404;
+@font-face {
+    font-family: 'arla';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_lt-webfont.eot');
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_lt-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_lt-webfont.woff') format('woff'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_lt-webfont.ttf') format('truetype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_lt-webfont.svg#arla') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'arla';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_rg-webfont.eot');
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_rg-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_rg-webfont.woff') format('woff'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_rg-webfont.ttf') format('truetype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_rg-webfont.svg#arla') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'arla';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_bd-webfont.eot');
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_bd-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_bd-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_bd-webfont.woff') format('woff'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_bd-webfont.ttf') format('truetype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_bd-webfont.svg#arla') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'arla';
+    src: url('/Web/Core/UI/Fonts/arlaif_it-webfont.eot');
+    src: url('/Web/Core/UI/Fonts/arlaif_it-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/Web/Core/UI/Fonts/arlaif_it-webfont.woff2') format('woff2'),
+         url('/Web/Core/UI/Fonts/arlaif_it-webfont.woff') format('woff'),
+         url('/Web/Core/UI/Fonts/arlaif_it-webfont.ttf') format('truetype'),
+         url('/Web/Core/UI/Fonts/arlaif_it-webfont.svg#arla') format('svg');
+    font-weight: 400;
+    font-style: italic;
+}
+
+// Font sizes from arla.dk
+$font-size-micro: 0.650em;
+$font-size-tiny: 0.8em;
+$font-size-x-small: 0.850em;
+$font-size-small: 0.9em;
+$font-size-base: 1em;
+$font-size-medium: 1.250em;
+$font-size-large: 1.500em;
+$font-size-x-large: 1.875em;
+
+//New color variables for red colors
+$colors: (
+  "red-new": (
+		base: #ec1c24,
+		secondary: #f4e2de,
+		tertiary: #fbf0ee,
+	),
+  "green-new": (
+		base: #19a413,
+		secondary: #8dc378,
+		tertiary: #00a012,
+		quaternary: #8da493
+	),
+  "grey-new": (
+		base: #333333,
+		secondary: #464646,
+		tertiary: #666666,
+		quaternary: #a5a5a5,
+		quinary: #dadada,
+		senary: #dce0e5,
+		septenary: #e2e2e2,
+		octonary: #f0f0f0,
+		nonary: #f7f7f7,
+		denary: #fcfcfc
+	),
+);
+
+// Function from arla.dk
+@function colors($color, $tone: 'base') {
+	$m: map-get($colors, #{$color});
+	@return map-get($m, #{$tone});
+}
+
+// Card var
+$card-text-wrap-height: 200px;
+$card-button-height: 60px;
+$card-grid-container-hor-padding: 30px;
+$card-container-bg-color: colors("red-new", secondary);
+$content-color: #fff;
+
+// off canvas var
+$mobile-header-height: 60px;
+
+
+@mixin pagination-circle ($width: 30px, $height: 30px) {
+  height: $height;
+  width: $width;
+
+  > span {
+    display: block;
+    line-height: $height;
+    border-radius: 100%;
+    box-shadow: inset 0 0 0 0 colors("red-new", secondary); // same color as back of card...
+    transition: box-shadow 0.7s, color 0.7s;
+  }
+}
+
+@mixin arrow($deg: -135deg, $border-color: colors("grey-new", tertiary)) {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+  line-height: normal;
+  border-right: solid 2px $border-color;
+  border-top: solid 2px $border-color;
+  transform: rotate($deg);
+  vertical-align: middle;
+
+  &:disabled, .is-inactive {
+    border-color: lighten(colors("grey-new", quaternary), 8%);
+  }
+
+  @content;
+}
+
+
+
+body.my-meal-plan {
+  background-color: $card-container-bg-color;
+}
+
+/******************
+  Overwrite hero styling
+*******************/
+.my-meal-plan .hero-deck {
+  margin: 0;
+
+  @media print {
+    border-top: 0;
+  }
+
+  .content-block {
+    @media screen and (min-width: 641px) {
+      padding-bottom: 75px; // tab bar heightheight: 130px;
+    }
+  }
+
+  .content {
+    text-align: center;
+
+    > h1 {
+      display: none;
+
+      @media print {
+        display: block;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 18px!important;
+      }
+    }
+
+    > img {
+      display: block;
+      height: 175px;
+      margin: 0 auto;
+
+      @media screen and (max-width:1000px) {
+        height: 130px;
+      }
+
+      @media print {
+        display: none;
+      }
+    }
+
+    > p {
+      max-width: 500px;
+      margin: 20px auto 0;
+      font-weight: 500;
+      font-size: 20px;
+
+      @media print {
+        display: none;
+      }
+    }
+  }
+}
+
+.card-grid__container {
+  padding: 20px $card-grid-container-hor-padding;
+  background-color: $card-container-bg-color;
+
+  @media screen and (min-width: 2300px) {
+    max-width: 2300px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width:1000px) {
+    padding: 0;
+  }
+
+  @media print {
+    padding: 0;
+  }
+}
+
+.card-grid__header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px 10px 20px;
+
+  @media print {
+    padding: 0 10px;
+  }
+}
+
+
+ul.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+
+  @media print {
+    padding: 5px;
+  }
+}
+
+// Grid width
+li.card-grid__item {
+  width: 20%;
+  padding: 10px;
+
+  @media screen and (max-width: 1900px) {
+    width: 25%;
+  }
+
+  @media screen and (max-width: 1500px) {
+    width: 33.3333%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width:640px) {
+    width: 100%;
+  }
+
+  @media print {
+    width: 33.3333%;
+    padding: 5px;
+    display: block;
+  }
+}
+
+/**************************
+  Flip animation container
+**************************/
+.flip-container {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card--front {
+  position: relative;
+
+  backface-visibility: hidden;
+  transform:rotateY(0);
+  transition:0.5s ease-in-out;
+
+  .flip-back & {
+    transform:rotateY(-180deg);
+  }
+
+  @media print {
+    backface-visibility: initial;
+    transform: initial;
+  }
+}
+
+.card--back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  backface-visibility: hidden;
+  transform:rotateY(180deg);
+  transition:0.5s ease-in-out;
+
+  .flip-back & {
+    transform:rotateY(0);
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+/***************
+  Card content
+****************/
+.card__content {
+  position: relative;
+  height: 100%;
+  padding: 20px;
+  padding-bottom: $card-button-height + 20px; // + gutter use variable
+  background-color: $content-color;
+  transition: background-color 150ms;
+  color: colors("grey-new", tertiary);
+
+  @media print {
+    height: 270px;
+    padding: 10px;
+    border: 1px solid colors("grey-new", quinary);
+    background: white!important;
+    color: colors("grey-new", base)!important;
+  }
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 10px;
+    background-color: #fff;
+    background-image: radial-gradient(circle, colors("red-new", secondary) 10%, transparent 10%);
+    background-size: 30px 120px;
+    background-position: 50% 62px;
+    transition: background-color 150ms;
+
+    @media print {
+      display: none;
+    }
+  }
+
+  // Color theme green - front
+  .card--front &.card-theme--green {
+    color: white;
+    background-color: colors("green-new", secondary);
+
+    &::before {
+      background-color: colors("green-new", secondary);
+    }
+
+    .card__day, .card__category {
+      color: white;
+    }
+
+    .cooking-time::before {
+      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/stopwatch_time_white.svg") no-repeat center center;
+    }
+
+    .bx-wrapper .bx-controls .bx-controls-direction a {
+      background-color: colors("green-new", secondary);
+
+      &::before {
+        border-color: white;
+      }
+    }
+
+    .bx-wrapper .bx-pager.bx-default-pager .bx-pager-link.active {
+      background-color: white;
+    }
+  }
+
+  // Color theme red - front
+  .card--front &.card-theme--red {
+    color: white;
+      background-color: colors("red-new", base);
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/card-bg.svg), url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/card-bg.svg);
+      background-position: 75% 75%, 100% -6px;
+      background-repeat: no-repeat, no-repeat;
+      background-size: 250%, 250%;
+
+      &::before {
+        background-color: colors("red-new", base);
+      }
+
+    .card__day, .card__category {
+      color: white;
+    }
+
+    .cooking-time::before {
+      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/stopwatch_time_white.svg") no-repeat center center;
+    }
+
+    .bx-wrapper .bx-controls .bx-controls-direction a {
+      background-color: colors("red-new", base);
+
+      &::before {
+        border-color: white;
+      }
+    }
+
+    .bx-wrapper .bx-pager.bx-default-pager .bx-pager-link.active {
+      background-color: white;
+    }
+  }
+
+  // Color theme - back
+  .card--back & {
+    background-color: colors("red-new", tertiary);
+
+    &::before {
+      background-color: colors("red-new", tertiary);
+    }
+  }
+}
+
+.card__buttons {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: $card-button-height;
+  font-size: $font-size-x-small;
+  font-weight: 500;
+  color: inherit;
+  background-color: $card-container-bg-color;
+
+  @media print {
+    display: none;
+  }
+
+  > button {
+    flex: 1;
+
+    font-size: $font-size-x-small;
+    line-height: normal;
+    color: inherit;
+    background-color: colors("red-new", tertiary);
+    transition: background-color 150ms;
+
+    &:first-child {
+      flex: 1.5;
+      margin-right: 1px;
+    }
+
+    &:hover {
+      background-color: lighten( colors("red-new", tertiary), 1.1% );
+    }
+  }
+}
+
+.card__button--recommend {
+  > img {
+    width: 23px;
+    height: 23px;
+    margin-right: 10px;
+  }
+}
+
+.card__button--change {
+  > img {
+    width: 21px;
+    height: 21px;
+    margin-right: 10px;
+  }
+}
+
+.card__header {
+  height: 110px;
+  padding: 20px 0;
+  text-align: center;
+
+  @media print {
+    height: 44px;
+    padding: 0;
+  }
+}
+
+.card__day {
+  font-size: $font-size-large;
+  font-weight: 300;
+  color: colors("red-new", base);
+
+  @media print {
+    font-size: 14px;
+    color: colors("red-new", base)!important;
+  }
+}
+
+.card__date {
+  font-size: $font-size-tiny;
+  font-weight: 300;
+  color: inherit;
+
+  @media print {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
+
+.card__image-wrap {
+  position: relative;
+}
+
+.card__image {
+  > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: top;
+  }
+}
+
+.card__link {
+  display: block;
+  height: $card-text-wrap-height;
+  padding: 20px;
+  font-weight: 300;
+
+  @media print {
+    height: auto;
+    padding: 0;
+  }
+
+  .cooking-time {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: inherit;
+
+    @media print {
+      font-size: 11px;
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (max-width:640px) {
+    padding: 20px 0;
+  }
+}
+
+.card__category {
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 45px;
+  text-align: center;
+  color: colors("red-new", base);
+
+  @media print {
+    font-size: 10px;
+    margin: 5px 0 0 0;
+    color: colors("red-new", base)!important;
+  }
+}
+
+.card__text {
+  font-size: 16px;
+  line-height: 22px;
+  height: 70px;
+  margin: 0;
+  color: inherit;
+  padding-left: 35px;
+  overflow: hidden;
+
+  display: -webkit-box; // Chrome only ...
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  @media screen and (min-width: 1000px) {
+    font-size: 18px;
+    line-height: 24px;
+    height: 76px;
+  }
+
+  @media print {
+    font-size: 11px;
+    line-height: 13px;
+    height: auto;
+    padding: 0;
+  }
+}
+
+.card__textarea {
+  position: relative;
+  margin-bottom: $card-text-wrap-height;
+
+  @media print {
+    margin-bottom: 0;
+  }
+
+  > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  > textarea {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    text-align: center;
+    resize: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    font-size: $font-size-medium;
+    line-height: $font-size-medium;
+    font-weight: 300;
+    color: colors("grey-new", tertiary);
+
+    &::placeholder {
+      color: colors("grey-new", tertiary);
+    }
+
+    @media print {
+      font-size: 16px;
+      padding: 10px;
+    }
+  }
+}
+
+
+/********
+  Search
+*********/
+.card-search__header {
+  display: flex;
+  margin: 5px 10px 0 0;
+
+  @media print {
+    display: none;
+  }
+}
+
+.card-search__search {
+  .search-form {
+    padding: 20px 0;
+  }
+}
+
+.card-search__header-button {
+  display: flex;
+  font-size: $font-size-micro;
+  line-height: normal;
+  margin-left: auto;
+  color: colors("grey-new", tertiary);
+
+  > img {
+    display: block;
+    width: 10px;
+    height: 15px;
+    margin-left: 10px;
+  }
+}
+
+.card-search__list {
+  margin: 7%;
+  padding: 0;
+  list-style: none;
+}
+
+.card-search__item {
+  display: flex;
+  height: 55px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.card-search__image {
+  position: relative;
+  width: 90px;
+  min-width: 90px;
+  margin-right: 15px;
+  overflow: hidden;
+
+  > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .is-favorite &::before, .is-favorite &::after {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .is-favorite &::before {
+    background-color: colors("green-new", base);
+    opacity: 0.70;
+  }
+
+  .is-favorite &::after {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/heart_favorite_like_plus_white.svg") center center no-repeat;
+    background-size: auto 25px;
+  }
+}
+
+.card-search__text {
+  flex: 0 1 auto; // IE10
+  height: 50px;
+  overflow: hidden;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.3em;
+
+  > span {
+    display: block; // IE10
+
+    display: -webkit-box; // Chrome only ...
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .is-favorite & {
+    color: colors("green-new", base);
+  }
+}
+
+/*************
+  Pagination
+**************/
+.card-search__pagination {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+
+  > li {
+    @include pagination-circle;
+
+    display: inline-block;
+    cursor: pointer;
+    font-size: $font-size-tiny;
+
+    &.is-active {
+      > span {
+        color: white;
+        box-shadow: inset 0 0 0 20px colors("red-new", base);
+      }
+    }
+
+    &:hover {
+      > span {
+        color: white;
+        box-shadow: inset 0 0 0 20px colors("red-new", base);
+      }
+    }
+  }
+}
+
+.card-search__pagination-button--prev {
+  @include arrow;
+
+  margin-top: -2px;
+}
+
+.card-search__pagination-button--next {
+  @include arrow(45deg);
+
+  margin-top: -2px;
+}
+
+
+/*************
+  Buttons
+**************/
+.card__button--close {
+  color: colors("grey-new", tertiary);
+  line-height: normal;
+
+  @media print {
+    display: none;
+  }
+}
+
+.card__button--remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 26px;
+  width: 26px;
+  line-height: 26px;
+  background-color: white;
+  border-radius: 100%;
+
+  > img {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.card__button--favorite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: normal;
+  background-color: white;
+
+  > img {
+    display: block;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+  }
+
+  &.is-favorite {
+    background-color: colors("green-new", base);
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+
+
+// Slider overwrites, uses same markup as arla.dk recipes
+.card__content .bx-wrapper {
+  ul {
+    margin: 0;
+
+    @media print {
+      display: block!important;
+    }
+
+    li {
+      padding: 0;
+      margin: 0!important;
+    }
+  }
+
+  .bx-controls-direction {
+    display: flex;
+    justify-content: space-between;
+
+    @media print {
+      display: none;
+    }
+  }
+
+  .bx-controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: $card-text-wrap-height - 54px;
+
+    @media print {
+      display: none;
+    }
+  }
+
+  .bx-controls-direction  {
+    a {
+      position: relative;
+      display: block;
+      margin: 0;
+      background-image: none;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .bx-prev {
+    &::before {
+      @include arrow {
+        position: absolute;
+        top: 50%;
+        margin-top: -3px;
+        left: 50%;
+        margin-left: -3px;
+
+        border-color: colors("grey-new", quaternary);
+      };
+    }
+  }
+
+  .bx-next {
+    &::before {
+      @include arrow(45deg) {
+        position: absolute;
+        top: 50%;
+        margin-top: -3px;
+        right: 50%;
+        margin-right: -3px;
+
+        border-color: colors("grey-new", quaternary);
+      };
+    }
+  }
+
+  .bx-pager.bx-default-pager {
+    display: flex;
+    justify-content: center;
+    position: static;
+    padding-top: 5px;
+
+    .bx-pager-link {
+      width: 8px;
+      height: 8px;
+      z-index: 1;
+      background-color: colors("grey-new", quaternary);
+
+      &.active {
+        background-color: colors("red-new", base);
+      }
+    }
+  }
+}
+
+/******************
+  Week number
+******************/
+.week-number {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media print {
+
+  }
+}
+
+.week-number__button--prev {
+  @include arrow;
+
+  @media print {
+    display: none;
+  }
+}
+
+.week-number__button--next {
+  @include arrow(45deg);
+
+  @media print {
+    display: none;
+  }
+}
+
+.week-number__text {
+  font-size: $font-size-medium;
+  font-weight: 300;
+  margin: 0 $card-grid-container-hor-padding;
+
+  @media screen and (max-width: 640px) {
+    font-size: 14px;
+  }
+
+  @media print {
+    position: absolute;
+    top: 50px;
+    margin: 0;
+    font-size: 13px;
+  }
+}
+
+
+.week-teaser {
+  position: relative;
+  top: -20px;
+  padding: 0 30px;
+
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
+
+  @media print {
+    display: none;
+  }
+
+  > img {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+  }
+
+  > p {
+    display: inline-block;
+    width: 130px;
+    transform: rotate(-10deg);
+    font-family: "MVB Emmascript", Helvetica,Arial,sans-serif;
+    line-height: 18px;
+    color: colors("red-new", base);
+  }
+
+  .week-teaser__indent-text {
+    display: inline-block;
+    margin-left: 12px;
+  }
+}
+
+
+// Print button
+.print-cards__button {
+  margin-left: auto;
+
+  @media print {
+    display: none;
+  }
+
+  > a {
+    background-color: colors("red-new", base);
+  }
+}
+
+
+
+
+/******************************
+      My meal plan off canvas
+******************************/
+// Disable scroll on body when off canvas is open
+body.my-meal-plan-disable-scroll {
+  overflow: hidden;
+}
+
+.my-meal-plan__off-canvas-wrap {
+  &.my-meal-plan-off-canvas-is-open {
+    @media screen and (max-width:640px) {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+
+      top: $mobile-header-height;
+      left: 15%;
+      z-index: 2;
+    }
+  }
+
+  @media print {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+  }
+}
+
+.my-meal-plan__off-canvas {
+  @media screen and (max-width: 640px) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    transform: translateX(100%);
+    transition: transform 300ms ease, opacity 300ms ease;
+
+    background-color: rgba(colors("red-new", base), 0.90);
+    opacity: 0;
+    backface-visibility: hidden;
+
+    // When off canvas is open
+    .my-meal-plan-off-canvas-is-open & {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+
+/******************************
+      My meal plan tab bar
+******************************/
+.my-meal-plan__tabs {
+  margin: 0;
+  padding: 30px;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+
+  // Tab bar on larger devices
+  @media screen and (min-width:641px) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    flex-direction: row;
+
+    height: 65px;
+    padding: 0;
+
+    background-color: rgba(colors("red-new", base), 0.85);
+    border-bottom: 4px solid white;
+    z-index: 1;
+  }
+
+  @media screen and (min-width: 1000px) {
+    height: 75px;
+  }
+}
+
+.my-meal-plan__item {
+  display: block;
+  list-style: none;
+
+  position: relative;
+
+  // Tab bar on larger devices
+  @media screen and (min-width:641px) {
+    display: flex;
+
+    transition: all 0.4s;
+
+    &.is-active {
+      color: colors("red-new", base);
+      background-color: white;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      transition: all 0.2s;
+
+      width: 100%;
+      height: 0;
+      bottom: 0;
+      left: 0;
+      background: white;
+    }
+
+    &:hover {
+      color: colors("red-new", base);
+
+      &::after {
+        height: 100%;
+      }
+    }
+  }
+
+  // Re-order list elements
+  @media screen and (max-width:640px) {
+    order: 3;
+  }
+}
+
+.my-meal-plan__item--profile {
+  @extend .my-meal-plan__item;
+
+  // Re-order list elements
+  @media screen and (max-width:640px) {
+    order: 1;
+  }
+}
+
+.my-meal-plan__item--logo {
+  @extend .my-meal-plan__item;
+
+  // Tab bar on larger devices
+  @media screen and (min-width:641px) {
+    margin-left: auto;
+
+    display: block;
+
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/karolines-kokken-tern.svg") 0 -10px no-repeat;
+    background-size: 634px 450px;
+  }
+
+  // Re-order list elements
+  @media screen and (max-width:640px) {
+    order: 2;
+  }
+}
+
+.my-meal-plan__link {
+  display: block;
+  font-size: $font-size-small;
+  font-weight: 300;
+  color: inherit;
+
+  // Tab bar on larger devices
+  @media screen and (min-width:641px) {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 1 auto;
+    padding: 0 4vw;
+  }
+
+  @media screen and (min-width:1000px) {
+    padding: 0 4.5vw;
+  }
+
+  @media screen and (max-width:640px) {
+    padding: 8px 5px;
+    border-bottom: 1px solid rgba(black, 0.15);
+
+    .is-active & {
+      font-weight: bold;
+    }
+  }
+
+  > span {
+    display: block;
+    flex: 0 1 auto;
+    align-self: center;
+
+    @media print {
+      display: none;
+    }
+  }
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+// Logo
+.my-meal-plan__link--logo {
+  @extend .my-meal-plan__link;
+
+  // Tab bar on larger devices
+  @media screen and (min-width:641px) {
+    padding: 0 5vw;
+
+    > span {
+      display: none;
+    }
+
+    > img {
+      width: 80px;
+      height: 80px;
+      display: block;
+      position: relative;
+      bottom: 40px;
+    }
+  }
+
+  @media screen and (min-width:1000px) {
+    padding: 0 8vw;
+
+    > img {
+      width: 140px;
+      height: 140px;
+      bottom: 100px;
+    }
+  }
+
+  @media screen and (max-width:640px) {
+    > img {
+      display: none;
+    }
+  }
+
+  @media print {
+    > img {
+      width: 70px;
+      height: 70px;
+      display: block;
+    }
+  }
+}
+
+
+// My profile
+.my-meal-plan__link--profile {
+  @extend .my-meal-plan__link;
+}
+
+.my-meal-plan__link-text--desktop {
+  line-height: 18px;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+
+  @media screen and (max-width:1000px) {
+    display: none!important;
+  }
+
+  > span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    color: black;
+  }
+}
+
+.my-meal-plan__link-text--mobile {
+  @media screen and (min-width:1001px) {
+    display: none!important;
+  }
+}
+
+
+
+
+/******************************
+  Buttons open close off canvas
+******************************/
+@mixin my-meal-plan__button {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background-color: colors("red-new", base);
+
+  > img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  // Hide this open offcanvas button on larger screens
+  @media screen and (min-width:641px) {
+    display: none;
+  }
+}
+
+.my-meal-plan__button--open {
+  @include my-meal-plan__button;
+
+  position: fixed;
+  top: $mobile-header-height;
+  opacity: 1;
+  backface-visibility: hidden;
+  transition: opacity 300ms ease, top .5s;
+
+  // When arla header slides up do the same with this
+  .scrolls-down & {
+    position: absolute;
+    top: - $mobile-header-height - 100px; // -100px is the scroll top of the main mobile navigation
+  }
+
+  // Fade out this button when off canvas menu is open
+  .my-meal-plan-off-canvas-is-open & {
+    opacity: 0;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.my-meal-plan__button--close {
+  @include my-meal-plan__button;
+
+  @media print {
+    display: none;
+  }
+}
+
+
+
+/****************
+  Cook books
+*****************/
+$cook-book-padding-mobile: 15px 20px 10px 20px;
+
+.cook-book__container {
+  padding: 20px $card-grid-container-hor-padding;
+  color: white;
+  background-position: 0 0;
+
+  @media only screen and (min-width: 0) and (max-width: 640px)  {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/cook-book-bg-small.jpg");
+    background-size: contain;
+    background-repeat-y: repeat;
+  }
+
+  @media only screen and (min-width: 641px) and (max-width: 1000px)  {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/cook-book-bg-medium.jpg");
+    background-size: contain;
+    background-repeat-y: repeat;
+  }
+
+  @media only screen and (min-width: 1001px)  {
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/cook-book-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media screen and (max-width:1000px) {
+    padding: 0;
+  }
+
+  @media screen and (min-width: 2300px) {
+    max-width: 2300px;
+    margin: 0 auto;
+  }
+
+  @media print {
+    padding: 0;
+  }
+}
+
+.cook-book__header {
+  max-width: 780px;
+  padding: 60px $card-grid-container-hor-padding 20px;
+
+  @media screen and (max-width:640px) {
+    padding: $cook-book-padding-mobile;
+    padding-top: 50px;
+  }
+
+  > h1 {
+    font-size: $font-size-large;
+    font-weight: 100;
+    text-transform: none;
+  }
+}
+
+.cook-book__tags {
+  padding: 0 $card-grid-container-hor-padding;
+
+  @media screen and (max-width:640px) {
+    padding: $cook-book-padding-mobile;
+  }
+
+  > button {
+    margin: 0 15px 15px 0;
+    font-size: $font-size-tiny;
+    font-weight: 100;
+    color: inherit;
+    background-color: transparent;
+    transition: all 150ms ease;
+
+    box-shadow: 0px 0px 0px 1px white;
+
+    &.is-active, &:hover {
+      color: inherit;
+      box-shadow: 0px 0px 0px 1px colors("red-new", base);
+      background-color: colors("red-new", base);
+    }
+  }
+}
+
+.cook-book__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0 20px;
+  list-style: none;
+
+  @media screen and (min-width: 1001px) {
+    margin: 0 -1vw;
+  }
+  @media screen and (min-width: 641px) {
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width:640px) {
+    padding: $cook-book-padding-mobile;
+  }
+
+  @media print {
+    padding: 5px;
+  }
+}
+
+.cook-book__item {
+  width: 25%;
+  padding: 2vw;
+  padding-bottom: 60px;
+
+  @media screen and (max-width: 1900px) {
+    width: 25%;
+  }
+
+  @media screen and (max-width: 1500px) {
+    width: 33.3333%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width:640px) {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 40px;
+  }
+
+  @media print {
+    width: 33.3333%;
+    padding: 5px;
+    display: block;
+  }
+}
+
+.cook-book__link {
+  color: inherit;
+  display: block;
+  margin-bottom: 30px;
+  transition: color 150ms;
+
+  &:hover {
+    color: #dadada;
+  }
+}
+
+.cook-book__title {
+  font-size: $font-size-base;
+  font-weight: 600;
+  line-height: 1.1em;
+
+  display: flex;
+  align-items: center;
+
+  > img {
+    position: relative;
+    top: -4px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+  }
+}
+
+.cook-book__content {
+  font-size: $font-size-x-small;
+  color: inherit;
+  max-height: 76px;
+  overflow: hidden;
+
+  display: -webkit-box; // Chrome only ...
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  @media screen and (min-width:641px) {
+    height: 76px;
+  }
+}
+
+.cook-book__figure {
+  margin-bottom: 30px;
+}
+
+.cook-book__image {
+  margin: 0 10px 10px 0;
+  height: 15.6vw;
+
+  @media screen and (max-width: 1500px) {
+    height: 22.2vw;
+  }
+
+  @media screen and (max-width: 1000px) {
+    height: 29.8vw;
+  }
+
+  @media screen and (max-width:640px) {
+    height: auto;
+  }
+
+  > img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.5);
+
+    transition: all 150ms;
+
+    &:hover {
+      box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.0);
+    }
+  }
+}
+
+.cook-book__buy-button {
+  font-size: $font-size-tiny;
+  font-weight: 100;
+  background-color: colors("red-new", base);
+}
+
+
+
+/********************
+      Login deck
+********************/
+.foodclub-user-form-deck {
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: colors("red-new", base);
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/card-bg.svg);
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: 1600px;
+
+  @media screen and (min-width:1500px) {
+    background-size: 100%;
+  }
+}
+
+.foodclub-user-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 35px 20px;
+
+  .login-header {
+    font-size: $font-size-large;
+    margin-bottom: 1.5em;
+  }
+
+  .login-form {
+    div input {
+      margin-bottom: 15px;
+      max-width: 350px;
+    }
+
+    p {
+      font-size: 16px;
+      color: inherit;
+    }
+
+    a {
+      font-size: 16px;
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  .action-button {
+    width: auto;
+    margin: 20px 0;
+    padding-left: 60px;
+    padding-right: 60px;
+    border: 2px solid white;
+    border-radius: 0;
+    background-color: transparent;
+  }
 }

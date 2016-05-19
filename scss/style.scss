@@ -1,19 +1,16 @@
+$font-color: rgb(116, 110, 110);
+$btn-bgc: rgb(251, 240, 237);
+
 body{
-  background-color: red
+  background-color: grey;
 }
 
-.card-item-grid{
-  list-style: none;
-  display: flex;
-  width: 100%;
-  height: auto;
-
+.card-item-wrapper {
+    width: 288px;
+    height: 400px;
+    background-color: white;
+    position: relative;
 }
-.card-item-wrapper{
-  width: 276px;
-  height: 500px;
-  background-color: white;s
-  position: relative;
 
 .card-item-grid {
     list-style: none;
@@ -21,12 +18,7 @@ body{
     width: 100%;
     height: auto;
 }
-.card-item-wrapper {
-    width: 276px;
-    height: 500px;
-    background-color: rgb(241, 241, 241);
-    position: relative;
-}
+
 .card-item {
     &__header {
         &-favorite {
@@ -40,11 +32,21 @@ body{
             height: 40%;
         }
     }
-    &__progressbar {}
+    &__progressbar {
+      width: 220px;
+      height: 50px;
+      margin: 5px auto;
+      border-bottom: 1px solid rgb(230, 223, 223);
+    }
     &__content {
-        width: 10px;
-        height: 10px;
-        background-color: red;
+        width: 220px;
+        height: 120px;
+        margin: 5px auto;
+       .recipe-title{
+         color: darken($font-color, 20%);
+         text-align: center;
+         font-size: 80%;
+       }
     }
     &__buttons {
         position: absolute;
@@ -56,33 +58,30 @@ body{
         display: inline-block;
         width: 50%;
     }
-  }
-  &__progressbar{
 
-  }
-  &__content{
-    width: 10px;
-    height: 10px;
-    background-color: red;
-  }
-  &__buttons{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
   .btn{
     background-color: #fbf0ed;
     display: inline-block;
     height: 40px;
     width: 50%;
-    border: none
+    border: none;
+    font-weight: bold;
+    color: $font-color;
+    transition: all .1s ease-in-out 0s;
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      transition: all .1s ease-in-out 0s;
+      background-color: darken($btn-bgc, .1%);
+    }
   }
   .btn-send{
-
+    &::before{
+      content: '';
+    }
   }
   .btn-ingredienser{
-
-
+    border-left: 1px solid #f0e7e5;
   }
 }

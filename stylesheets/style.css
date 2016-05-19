@@ -1,3 +1,7 @@
+@import 'http://www.arla.dk/UI/Css/Vendor?v=JGAfWa8-xhH6e_pWOuhUBrIb5vPuU0QFAdYL9cjWcFQ1';
+@import 'http://www.arla.dk/Web/Core/UI/Images/grunticons/icons.data.svg.css';
+@import 'http://www.arla.dk/UI/Css/Apps?v=5PwbarWYdphoXK3xbY5BIZwLJu5Rn_E0kq60_5rA-mc1';
+@import 'http://cloud.webtype.com/css/3e685fa8-868c-4f15-ae69-9606a970615d.css';
 @font-face {
   font-family: 'arla';
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/174819/arlaif_lt-webfont.eot");
@@ -111,7 +115,8 @@ ul.card-grid {
 
 li.card-grid__item {
   width: 20%;
-  padding: 10px; }
+  padding: 10px;
+  margin: 300px auto; }
   @media screen and (max-width: 1900px) {
     li.card-grid__item {
       width: 25%; } }
@@ -141,6 +146,7 @@ li.card-grid__item {
 
 .card--front {
   position: relative;
+  height: 600px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transform: rotateY(0);

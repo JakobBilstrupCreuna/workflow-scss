@@ -1,40 +1,42 @@
-.card-item-grid{
-  list-style: none;
-  display: flex;
-  width: 100%;
-  height: auto;
-
+.card-item-grid {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    height: auto;
 }
-.card-item-wrapper{
-  width: 276px;
-  height: 500px;
-  background-color: rgb(241, 241, 241);
-  position: relative;
+.card-item-wrapper {
+    width: 276px;
+    height: 500px;
+    background-color: rgb(241, 241, 241);
+    position: relative;
 }
-.card-item{
-  &__header{
-
-    &-img{
-      width: 100%;
-      height: 40%;
+.card-item {
+    &__header {
+        &-favorite {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: green;
+        }
+        &-img {
+            width: 100%;
+            height: 40%;
+        }
     }
-  }
-  &__progressbar{
-
-  }
-  &__content{
-    width: 10px;
-    height: 10px;
-    background-color: red;
-  }
-  &__buttons{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-  .btn-ingredienser{
-    display: inline-block;
-    width: 50%;
-  }
+    &__progressbar {}
+    &__content {
+        width: 10px;
+        height: 10px;
+        background-color: red;
+    }
+    &__buttons {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    .btn-ingredienser {
+        display: inline-block;
+        width: 50%;
+    }
 }

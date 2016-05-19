@@ -1,3 +1,6 @@
+body {
+  background-color: #f1f1f1; }
+
 .card-item-grid {
   list-style: none;
   display: -webkit-box;
@@ -9,7 +12,7 @@
 .card-item-wrapper {
   width: 276px;
   height: 500px;
-  background-color: #f1f1f1;
+  background-color: white;
   position: relative; }
 
 .card-item__header-favorite {
@@ -33,6 +36,9 @@
   right: 0;
   left: 0; }
 
-.card-item .btn-ingredienser {
+.card-item .btn {
+  background-color: #fbf0ed;
   display: inline-block;
-  width: 50%; }
+  height: 40px;
+  width: 50%;
+  border: none; }

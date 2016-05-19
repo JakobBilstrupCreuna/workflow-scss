@@ -1,3 +1,20 @@
+body{
+  background-color: red
+}
+
+.card-item-grid{
+  list-style: none;
+  display: flex;
+  width: 100%;
+  height: auto;
+
+}
+.card-item-wrapper{
+  width: 276px;
+  height: 500px;
+  background-color: white;s
+  position: relative;
+
 .card-item-grid {
     list-style: none;
     display: flex;
@@ -39,4 +56,33 @@
         display: inline-block;
         width: 50%;
     }
+  }
+  &__progressbar{
+
+  }
+  &__content{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+  }
+  &__buttons{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  .btn{
+    background-color: #fbf0ed;
+    display: inline-block;
+    height: 40px;
+    width: 50%;
+    border: none
+  }
+  .btn-send{
+
+  }
+  .btn-ingredienser{
+
+
+  }
 }

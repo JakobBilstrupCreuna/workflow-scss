@@ -1,3 +1,87 @@
-*{
-	background-color: #be0404;
+$font-color: rgb(116, 110, 110);
+$btn-bgc: rgb(251, 240, 237);
+
+body{
+  background-color: grey;
+}
+
+.card-item-wrapper {
+    width: 288px;
+    height: 400px;
+    background-color: white;
+    position: relative;
+}
+
+.card-item-grid {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.card-item {
+    &__header {
+        &-favorite {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: green;
+        }
+        &-img {
+            width: 100%;
+            height: 40%;
+        }
+    }
+    &__progressbar {
+      width: 220px;
+      height: 50px;
+      margin: 5px auto;
+      border-bottom: 1px solid rgb(230, 223, 223);
+    }
+    &__content {
+        width: 220px;
+        height: 120px;
+        margin: 5px auto;
+       .recipe-title{
+         color: darken($font-color, 20%);
+         text-align: center;
+         font-size: 80%;
+       }
+    }
+    &__buttons {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    .btn-ingredienser {
+        display: inline-block;
+        width: 50%;
+    }
+
+  .btn{
+    background-color: #fbf0ed;
+    display: inline-block;
+    height: 40px;
+    width: 50%;
+    border: none;
+    font-weight: bold;
+    color: $font-color;
+    transition: all .1s ease-in-out 0s;
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      transition: all .1s ease-in-out 0s;
+      background-color: darken($btn-bgc, .1%);
+    }
+  }
+  .btn-send{
+    &::before{
+      content: '';
+    }
+  }
+  .btn-ingredienser{
+    border-left: 1px solid #f0e7e5;
+  }
 }

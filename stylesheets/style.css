@@ -1,2 +1,74 @@
-* {
-  background-color: #be0404; }
+body {
+  background-color: grey; }
+
+.card-item-wrapper {
+  width: 288px;
+  height: 400px;
+  background-color: white;
+  position: relative; }
+
+.card-item-grid {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto; }
+
+.card-item__header-favorite {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: green; }
+
+.card-item__header-img {
+  width: 100%;
+  height: 40%; }
+
+.card-item__progressbar {
+  width: 220px;
+  height: 50px;
+  margin: 5px auto;
+  border-bottom: 1px solid #e6dfdf; }
+
+.card-item__content {
+  width: 220px;
+  height: 120px;
+  margin: 5px auto; }
+  .card-item__content .recipe-title {
+    color: #403c3c;
+    text-align: center;
+    font-size: 80%; }
+
+.card-item__buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0; }
+
+.card-item .btn-ingredienser {
+  display: inline-block;
+  width: 50%; }
+
+.card-item .btn {
+  background-color: #fbf0ed;
+  display: inline-block;
+  height: 40px;
+  width: 50%;
+  border: none;
+  font-weight: bold;
+  color: #746e6e;
+  -webkit-transition: all .1s ease-in-out 0s;
+  transition: all .1s ease-in-out 0s; }
+  .card-item .btn:focus {
+    outline: none; }
+  .card-item .btn:hover {
+    -webkit-transition: all .1s ease-in-out 0s;
+    transition: all .1s ease-in-out 0s;
+    background-color: #fbf0ed; }
+
+.card-item .btn-send::before {
+  content: ''; }
+
+.card-item .btn-ingredienser {
+  border-left: 1px solid #f0e7e5; }

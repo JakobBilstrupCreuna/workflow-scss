@@ -1,0 +1,23 @@
+{
+  "name": "workflow-scss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "pug": "^2.0.0-alpha7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakobBilstrupCreuna/workflow-scss.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakobBilstrupCreuna/workflow-scss/issues"
+  },
+  "homepage": "https://github.com/JakobBilstrupCreuna/workflow-scss#readme"
+}

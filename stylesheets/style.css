@@ -1,15 +1,11 @@
 body {
-<<<<<<< HEAD
-  background-color: grey; }
+  background-color: #e8e8e8; }
 
 .card-item-wrapper {
   width: 288px;
   height: 400px;
   background-color: white;
   position: relative; }
-=======
-  background-color: #e8e8e8; }
->>>>>>> origin/daniel-1
 
 .card-item-grid {
   list-style: none;
@@ -19,16 +15,23 @@ body {
   width: 100%;
   height: auto; }
 
-<<<<<<< HEAD
 .card-item__header-favorite {
   position: absolute;
   width: 40px;
   height: 40px;
   background-color: green; }
+  .card-item__header-favorite-img {
+    width: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4px; }
 
 .card-item__header-img {
   width: 100%;
-  height: 40%; }
+  height: 40%;
+  margin-left: auto;
+  margin-right: auto; }
 
 .card-item__progressbar {
   width: 220px;
@@ -77,63 +80,3 @@ body {
 
 .card-item .btn-ingredienser {
   border-left: 1px solid #f0e7e5; }
-=======
-.card-item-wrapper {
-  width: 276px;
-  height: 500px;
-  background-color: white;
-  position: relative; }
-  .card-item-wrapper .card-item-grid {
-    list-style: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: auto; }
-  .card-item-wrapper .card-item-wrapper {
-    width: 276px;
-    height: 500px;
-    background-color: #f1f1f1;
-    position: relative; }
-  .card-item-wrapper .card-item__header-favorite {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background-color: green; }
-    .card-item-wrapper .card-item__header-favorite-img {
-      width: 30px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 4px; }
-  .card-item-wrapper .card-item__header-img {
-    width: 100%;
-    height: 40%; }
-  .card-item-wrapper .card-item__content {
-    width: 10px;
-    height: 10px;
-    background-color: #fff; }
-  .card-item-wrapper .card-item__buttons {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0; }
-  .card-item-wrapper .card-item .btn-ingredienser {
-    display: inline-block;
-    width: 50%; }
-  .card-item-wrapper__content {
-    width: 10px;
-    height: 10px;
-    background-color: red; }
-  .card-item-wrapper__buttons {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0; }
-  .card-item-wrapper .btn {
-    background-color: #fbf0ed;
-    display: inline-block;
-    height: 40px;
-    width: 50%;
-    border: none; }
->>>>>>> origin/daniel-1

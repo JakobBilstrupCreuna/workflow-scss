@@ -6,7 +6,9 @@
   "dependencies": {
     "pug": "^2.0.0-alpha7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

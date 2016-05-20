@@ -1,3 +1,3 @@
 $( document ).ready(function() {
-    console.log( "Hello1111!" );
+    console.log( "Workflow-SCSS!" );
 });

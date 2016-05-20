@@ -1,4 +1,4 @@
 $( document ).ready(function() {
-    console.log( "Work!" );
+    console.log( "Workflow-scss!" );
 
 });

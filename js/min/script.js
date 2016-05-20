@@ -1,1 +1,1 @@
-$(document).ready(function(){console.log("Work!")});
+$(document).ready(function(){console.log("Workflow-scss!")});

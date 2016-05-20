@@ -2,7 +2,11 @@ $font-color: rgb(116, 110, 110);
 $btn-bgc: rgb(251, 240, 237);
 
 body{
+<<<<<<< HEAD
   background-color: grey;
+=======
+  background-color: #e8e8e8;
+>>>>>>> origin/daniel-1
 }
 
 .card-item-wrapper {
@@ -11,6 +15,14 @@ body{
     background-color: white;
     position: relative;
 }
+<<<<<<< HEAD
+=======
+.card-item-wrapper{
+  width: 276px;
+  height: 500px;
+  background-color: white;
+  position: relative;
+>>>>>>> origin/daniel-1
 
 .card-item-grid {
     list-style: none;
@@ -26,10 +38,19 @@ body{
             width: 40px;
             height: 40px;
             background-color: green;
+            &-img {
+                width: 30px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 4px;
+            }
         }
         &-img {
             width: 100%;
             height: 40%;
+            margin-left: auto;
+            margin-right auto;
         }
     }
     &__progressbar {
@@ -39,6 +60,7 @@ body{
       border-bottom: 1px solid rgb(230, 223, 223);
     }
     &__content {
+<<<<<<< HEAD
         width: 220px;
         height: 120px;
         margin: 5px auto;
@@ -47,6 +69,11 @@ body{
          text-align: center;
          font-size: 80%;
        }
+=======
+        width: 10px;
+        height: 10px;
+        background-color: #fff;
+>>>>>>> origin/daniel-1
     }
     &__buttons {
         position: absolute;

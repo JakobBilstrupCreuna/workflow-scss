@@ -8,7 +8,8 @@
 body {
   background-color: #404040;
   position: relative;
-  font-family: "ArlaF-Rg"; }
+  font-family: "ArlaF-Rg";
+  margin-top: 200px; }
 
 .card-item-grid {
   list-style: none;
@@ -197,13 +198,22 @@ body {
   list-style: none;
   width: 100%; }
   .card-item__ingrediens-list .checkbox-style {
-    width: 220px;
+    width: 250px;
     height: auto;
+    left: -15px;
+    border-top: 1px solid #efefef;
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
     border-radius: 50px;
     position: relative;
     display: inline-block; }
     .card-item__ingrediens-list .checkbox-style p {
       display: inline-block; }
+    .card-item__ingrediens-list .checkbox-style .checked {
+      color: #b9b9b9;
+      text-decoration: line-through;
+      -webkit-transition: width 0.5s ease-in;
+      transition: width 0.5s ease-in; }
     .card-item__ingrediens-list .checkbox-style label {
       cursor: pointer;
       position: absolute;
@@ -225,8 +235,10 @@ body {
         left: 5px;
         -webkit-transition: all 0.5s;
         transition: all 0.5s; }
+    .card-item__ingrediens-list .checkbox-style .label-checked {
+      border: 1px solid #b2b2b2; }
     .card-item__ingrediens-list .checkbox-style input[type=checkbox]:checked + label:after {
-      background: #00bf00;
+      background: #b2b2b2;
       opacity: 1; }
 
 input[type=checkbox] {

@@ -12,6 +12,7 @@ body{
   background-color: #404040;
   position: relative;
   font-family: $a-rg;
+  margin-top: 200px;
 }
 
 .card-item-grid {
@@ -189,69 +190,81 @@ body{
   }
 }
 
-
-// Backside of card
+//backside
 
 .card-item {
-    &__header-back {
-        background: #fff;
-        text-align: center;
-    }
-    &__select-person {
-        margin: 20px;
-        padding: 15px;
-        width: 250px;
-        font-size: 16px;
-    }
+  &__header-back {
+     background: #fff;
+     text-align: center;
+  }
+   &__select-person {
+       margin: 20px;
+       padding: 15px;
+       width: 250px;
+       font-size: 16px;
+   }
 
-    &__content-back {
-        background: #fff;
-    }
+   &__content-back {
+       background: #fff;
+   }
 
-    &__ingrediens-list {
-        list-style: none;
-        width: 100%;
+   &__ingrediens-list {
+       list-style: none;
+       width: 100%;
 
-        .checkbox-style {
-        	width: 220px;
-        	height: auto;
-        	border-radius: 50px;
-        	position: relative;
+       .checkbox-style {
+           width: 250px;
+           height: auto;
+           left: -15px;
+           border-top: 1px solid #efefef;
+           border-top-right-radius: 0 !important;
+           border-top-left-radius: 0 !important;
+           border-radius: 50px;
+           position: relative;
+           display: inline-block;
+        p{
           display: inline-block;
-          p{
-              display: inline-block;
-          }
-
-            label {
-            	cursor: pointer;
-            	position: absolute;
-            	width: 20px;
-            	height: 20px;
-            	border-radius: 50px;
-                border: 1px solid #b2b2b2;
-            	right: 0;
-            	top: 13px;
-
-                &:after {
-                	opacity: 0;
-                	content: '';
-                	position: absolute;
-                	width: 10px;
-                	height: 10px;
-                	background: #00bf00;
-                	border-radius: 50px;
-                	top: 5px;
-                	left: 5px;
-                    transition: all 0.5s;
-                }
-            }
-
-            input[type=checkbox]:checked + label:after {
-            	background: #00bf00;
-            	opacity: 1;
-            }
         }
-    }
+        .checked{
+          color: #b9b9b9;
+          text-decoration: line-through;
+          transition: width 0.5s ease-in;
+        }
+
+           label {
+               cursor: pointer;
+               position: absolute;
+               width: 20px;
+               height: 20px;
+               border-radius: 50px;
+               border: 1px solid #b2b2b2;
+               right: 0;
+               top: 13px;
+
+               &:after {
+                   opacity: 0;
+                   content: '';
+                   position: absolute;
+                   width: 10px;
+                   height: 10px;
+                   background: #00bf00;
+                   border-radius: 50px;
+                   top: 5px;
+                   left: 5px;
+                   transition: all 0.5s;
+               }
+
+           }
+           .label-checked{
+             border: 1px solid #b2b2b2;
+           }
+
+           input[type=checkbox]:checked + label:after {
+               background: #b2b2b2;
+               opacity: 1;
+           }
+       }
+   }
 }
 
 // Removes the original checkbox!

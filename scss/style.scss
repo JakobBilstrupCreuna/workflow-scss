@@ -7,11 +7,11 @@ $card-bgc-color: white;
 $btn-bgc: rgb(251, 240, 237);
 $a-rg: 'ArlaF-Rg';
 
+
 body{
   background-color: #404040;
   position: relative;
   font-family: $a-rg;
-
 }
 
 .card-item-grid {
@@ -84,7 +84,7 @@ body{
         border-radius: 8px;
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
         position: relative;
-
+        backface-visibility: hidden;
 
         .progress-bar {
           float: left;
@@ -98,6 +98,7 @@ body{
           background-color: #159d20;
           transition: width 0.6s ease;
           span{
+            backface-visibility: hidden;
             position: absolute;
             bottom: 25px;
             color: black;
@@ -134,6 +135,7 @@ body{
     transition: all .1s ease-in-out 0s;
     cursor: pointer;
     position: relative;
+    backface-visibility: hidden;
     &:focus{
       outline: none;
     }
@@ -155,6 +157,8 @@ body{
     &::before{
       background-image: url('icons/list.svg');
       left: 30px;
+      backface-visibility: hidden;
+
     }
   }
   .btn-ingredienser{
@@ -162,6 +166,8 @@ body{
     &::before{
       content:"";
       background-image: url('icons/list.svg');
+      backface-visibility: hidden;
+
     }
   }
 }

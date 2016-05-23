@@ -3,6 +3,7 @@
 
 
 $font-color: rgb(116, 110, 110);
+$card-bgc-color: white
 $btn-bgc: rgb(251, 240, 237);
 
 body{
@@ -15,7 +16,7 @@ body{
 .card-item-grid {
   list-style: none;
   display: flex;
-  width: 288px;
+  width: 300px;
   height: 400px;
   margin-right: auto;
   margin-left: auto;
@@ -35,13 +36,13 @@ body{
 .card-item-wrapper-front{
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: $card-bgc-color;
   position: absolute;
 }
 .card-item-wrapper-back{
+  background-color: $card-bgc-color;
   width: 100%;
   height: 100%;
-  background: blue;
   transform: rotateY( 180deg );
 }
 
@@ -69,32 +70,29 @@ body{
     }
     &__progressbar {
       width: 220px;
-      height: 50px;
-      margin: 5px auto;
+      height: auto;
+      margin: auto;
       border-bottom: 1px solid rgb(230, 223, 223);
-      .progress{
-        margin: 0 auto;
-        width: 75%;
-        padding-top: 19px;
-        & svg{
-          height: 5px;
-          border-radius: 20px;
-        }
-        &:before{
-
-        }
-        &:after{
+      padding: 20px 0px;
+      #progressBar {
+        div{
 
         }
       }
-    }
+      &:before{
+
+      }
+      &:after{
+
+      }
+      }
     &__content {
 
         width: 220px;
         height: 120px;
         margin: 5px auto;
        .recipe-title{
-         color: darken($font-color, 20%);
+         color: darken($font-color, 10%);
          text-align: center;
          font-size: 80%;
        }
@@ -141,15 +139,41 @@ body{
   .btn-send{
     &::before{
       background-image: url('icons/list.svg');
-      left: 30px
+      left: 30px;
     }
   }
   .btn-ingredienser{
     border-left: 1px solid #f0e7e5;
     &::before{
+      content:"";
       background-image: url('icons/list.svg');
     }
   }
 }
-
+.progress {
+  width: 75%;
+  height: 5px;
+  margin: 0px auto 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  span{
+    position: absolute;
+    bottom: 25px;
+    color: black;
+  }
+}
+.progress-bar {
+  float: left;
+  width: 0%;
+  height: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  border-radius: 8px;
+  color: #ffffff;
+  text-align: right;
+  background-color: #159d20;
+  transition: width 0.6s ease;
+}
 // Backside of card

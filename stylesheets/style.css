@@ -15,7 +15,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 288px;
+  width: 300px;
   height: 400px;
   margin-right: auto;
   margin-left: auto;
@@ -69,23 +69,32 @@ body {
 
 .card-item__progressbar {
   width: 220px;
-  height: 50px;
-  margin: 5px auto;
-  border-bottom: 1px solid #e6dfdf; }
-  .card-item__progressbar .progress {
-    margin: 0 auto;
+  height: auto;
+  margin: auto;
+  border-bottom: 1px solid #e6dfdf;
+  padding: 20px 0px; }
+  .card-item__progressbar #progressBar {
     width: 75%;
-    padding-top: 19px; }
-    .card-item__progressbar .progress svg {
-      height: 5px;
-      border-radius: 20px; }
+    height: 5px;
+    border-radius: 50px;
+    background-color: #dbdbdb;
+    margin: 0px auto; }
+    .card-item__progressbar #progressBar div {
+      height: 100%;
+      color: #fff;
+      text-align: right;
+      line-height: 22px;
+      /* same as #progressBar height if we want text middle aligned */
+      width: 0;
+      border-radius: 50px;
+      background-color: #159d20; }
 
 .card-item__content {
   width: 220px;
   height: 120px;
   margin: 5px auto; }
   .card-item__content .recipe-title {
-    color: #403c3c;
+    color: #5a5555;
     text-align: center;
     font-size: 80%; }
 
@@ -133,4 +142,5 @@ body {
 .card-item .btn-ingredienser {
   border-left: 1px solid #f0e7e5; }
   .card-item .btn-ingredienser::before {
+    content: "";
     background-image: url("icons/list.svg"); }

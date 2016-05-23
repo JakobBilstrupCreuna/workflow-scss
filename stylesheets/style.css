@@ -200,6 +200,8 @@ body {
   width: auto;
   height: 300px;
   overflow: auto; }
+  .card-item__ingrediens-list::-webkit-scrollbar {
+    display: none; }
   .card-item__ingrediens-list .checkbox-style {
     width: 250px;
     height: auto;

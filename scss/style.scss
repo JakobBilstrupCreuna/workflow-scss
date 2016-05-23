@@ -214,6 +214,9 @@ body{
        width: auto;
        height: 300px;
        overflow: auto;
+      &::-webkit-scrollbar { 
+        display: none;
+      }
 
        .checkbox-style {
            width: 250px;

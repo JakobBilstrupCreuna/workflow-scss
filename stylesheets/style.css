@@ -211,7 +211,6 @@ body {
       display: inline-block; }
     .card-item__ingrediens-list .checkbox-style .checked {
       color: #b9b9b9;
-      text-decoration: line-through;
       -webkit-transition: width 0.5s ease-in;
       transition: width 0.5s ease-in; }
     .card-item__ingrediens-list .checkbox-style label {

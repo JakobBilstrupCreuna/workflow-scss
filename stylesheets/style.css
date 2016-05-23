@@ -1,8 +1,14 @@
+@font-face {
+  font-family: 'ArlaF-Rg';
+  src: url("../fonts/rg/ArlaIF_Rg.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/rg/ArlaIF_Rg.?#iefix") format("embedded-opentype"), url("../fonts/rg/ArlaIF_Rg.woff2") format("woff2"), url("../fonts/rg/ArlaIF_Rg.woff") format("woff"), url("../fonts/rg/ArlaIF_Rg.ttf") format("truetype"), url("../fonts/rg/ArlaIF_Rg.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+
 body {
   background-color: #404040;
-  -webkit-perspective: 800px;
-          perspective: 800px;
-  position: relative; }
+  position: relative;
+  font-family: 'ArlaF-Rg'; }
 
 .card-item-grid {
   list-style: none;
@@ -66,6 +72,13 @@ body {
   height: 50px;
   margin: 5px auto;
   border-bottom: 1px solid #e6dfdf; }
+  .card-item__progressbar .progress {
+    margin: 0 auto;
+    width: 75%;
+    padding-top: 19px; }
+    .card-item__progressbar .progress svg {
+      height: 5px;
+      border-radius: 20px; }
 
 .card-item__content {
   width: 220px;
@@ -89,23 +102,35 @@ body {
 .card-item .btn {
   background-color: #fbf0ed;
   display: inline-block;
-  height: 40px;
+  height: 50px;
   width: 50%;
   border: none;
   font-weight: bold;
   color: #746e6e;
   -webkit-transition: all .1s ease-in-out 0s;
   transition: all .1s ease-in-out 0s;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative; }
   .card-item .btn:focus {
     outline: none; }
   .card-item .btn:hover {
     -webkit-transition: all .1s ease-in-out 0s;
     transition: all .1s ease-in-out 0s;
-    background-color: #fbf0ed; }
+    background-color: #f8e6e0; }
+  .card-item .btn::before {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    content: '';
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 13px; }
 
 .card-item .btn-send::before {
-  content: ''; }
+  background-image: url("icons/list.svg");
+  left: 30px; }
 
 .card-item .btn-ingredienser {
   border-left: 1px solid #f0e7e5; }
+  .card-item .btn-ingredienser::before {
+    background-image: url("icons/list.svg"); }

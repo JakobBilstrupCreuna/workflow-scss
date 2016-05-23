@@ -1,4 +1,5 @@
 @import 'partials/keyframes';
+@import 'partials/fonts';
 
 
 $font-color: rgb(116, 110, 110);
@@ -6,8 +7,8 @@ $btn-bgc: rgb(251, 240, 237);
 
 body{
   background-color: #404040;
-  perspective: 800px;
   position: relative;
+  font-family: 'ArlaF-Rg';
 
 }
 
@@ -71,6 +72,21 @@ body{
       height: 50px;
       margin: 5px auto;
       border-bottom: 1px solid rgb(230, 223, 223);
+      .progress{
+        margin: 0 auto;
+        width: 75%;
+        padding-top: 19px;
+        & svg{
+          height: 5px;
+          border-radius: 20px;
+        }
+        &:before{
+
+        }
+        &:after{
+
+        }
+      }
     }
     &__content {
 
@@ -97,28 +113,42 @@ body{
   .btn{
     background-color: #fbf0ed;
     display: inline-block;
-    height: 40px;
+    height: 50px;
     width: 50%;
     border: none;
     font-weight: bold;
     color: $font-color;
     transition: all .1s ease-in-out 0s;
     cursor: pointer;
+    position: relative;
     &:focus{
       outline: none;
     }
     &:hover{
       transition: all .1s ease-in-out 0s;
-      background-color: darken($btn-bgc, .1%);
+      background-color: darken($btn-bgc, 3%);
+    }
+    &::before{
+      height: 20px;
+      width: 20px;
+      vertical-align: middle;
+      content:'';
+      background-repeat: no-repeat;
+      position: absolute;
+      left: 13px
     }
   }
   .btn-send{
     &::before{
-      content: '';
+      background-image: url('icons/list.svg');
+      left: 30px
     }
   }
   .btn-ingredienser{
     border-left: 1px solid #f0e7e5;
+    &::before{
+      background-image: url('icons/list.svg');
+    }
   }
 }
 

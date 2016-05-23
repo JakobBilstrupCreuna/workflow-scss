@@ -6,7 +6,6 @@ $btn-bgc: rgb(251, 240, 237);
 
 body{
   background-color: #404040;
-  perspective: 800px;
   position: relative;
 
 }
@@ -123,3 +122,72 @@ body{
 }
 
 // Backside of card
+
+.card-item {
+    &__header-back {
+        background: #fff;
+        text-align: center;
+    }
+    &__select-person {
+        margin: 20px;
+        padding: 15px;
+        width: 250px;
+        font-size: 16px;
+    }
+
+    &__content-back {
+        background: #fff;
+    }
+
+    &__ingrediens-list {
+        list-style: none;
+        width: 100%;
+
+        .checkbox-style {
+        	width: 220px;
+        	height: auto;
+        	background: #fcfff4;
+        	border-radius: 50px;
+        	position: relative;
+            display: inline-block;
+
+            p{
+                display: inline-block;
+            }
+
+            label {
+            	cursor: pointer;
+            	position: absolute;
+            	width: 20px;
+            	height: 20px;
+            	border-radius: 50px;
+                border: 1px solid #b2b2b2;
+            	right: 0;
+            	top: 13px;
+
+                &:after {
+                	opacity: 0;
+                	content: '';
+                	position: absolute;
+                	width: 10px;
+                	height: 10px;
+                	background: #00bf00;
+                	border-radius: 50px;
+                	top: 5px;
+                	left: 5px;
+                    transition: all 0.5s;
+                }
+            }
+
+            input[type=checkbox]:checked + label:after {
+            	background: #00bf00;
+            	opacity: 1;
+            }
+        }
+    }
+}
+
+// Removes the original checkbox!
+input[type=checkbox] {
+    display: none;
+}

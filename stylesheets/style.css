@@ -1,7 +1,5 @@
 body {
   background-color: #404040;
-  -webkit-perspective: 800px;
-          perspective: 800px;
   position: relative; }
 
 .card-item-grid {
@@ -109,3 +107,56 @@ body {
 
 .card-item .btn-ingredienser {
   border-left: 1px solid #f0e7e5; }
+
+.card-item__header-back {
+  background: #fff;
+  text-align: center; }
+
+.card-item__select-person {
+  margin: 20px;
+  padding: 15px;
+  width: 250px;
+  font-size: 16px; }
+
+.card-item__content-back {
+  background: #fff; }
+
+.card-item__ingrediens-list {
+  list-style: none;
+  width: 100%; }
+  .card-item__ingrediens-list .checkbox-style {
+    width: 220px;
+    height: auto;
+    background: #fcfff4;
+    border-radius: 50px;
+    position: relative;
+    display: inline-block; }
+    .card-item__ingrediens-list .checkbox-style p {
+      display: inline-block; }
+    .card-item__ingrediens-list .checkbox-style label {
+      cursor: pointer;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50px;
+      border: 1px solid #b2b2b2;
+      right: 0;
+      top: 13px; }
+      .card-item__ingrediens-list .checkbox-style label:after {
+        opacity: 0;
+        content: '';
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #00bf00;
+        border-radius: 50px;
+        top: 5px;
+        left: 5px;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s; }
+    .card-item__ingrediens-list .checkbox-style input[type=checkbox]:checked + label:after {
+      background: #00bf00;
+      opacity: 1; }
+
+input[type=checkbox] {
+  display: none; }

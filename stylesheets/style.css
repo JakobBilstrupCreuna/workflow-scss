@@ -1,21 +1,44 @@
 body {
-  background-color: #404040; }
+  background-color: #404040;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  position: relative; }
 
 .card-item-grid {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 300px;
-  height: auto;
-  margin-right: auto;
-  margin-left: auto; }
-
-.card-item-wrapper-front, .card-item-wrapper-back {
   width: 288px;
   height: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s; }
+  .card-item-grid.flipped {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg); }
+
+.card-item-wrapper-front {
+  width: 100%;
+  height: 100%;
   background-color: white;
-  position: relative; }
+  position: absolute; }
+
+.card-item-wrapper-back {
+  width: 100%;
+  height: 100%;
+  background: blue;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute; }
 
 .card-item__header-favorite {
   position: absolute;

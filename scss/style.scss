@@ -6,22 +6,39 @@ $btn-bgc: rgb(251, 240, 237);
 
 body{
   background-color: #404040;
+  perspective: 800px;
+  position: relative;
+
 }
 
 .card-item-grid {
-    list-style: none;
-    display: flex;
-    width: 300px;
-    height: auto;
-    margin-right: auto;
-    margin-left: auto;
+  list-style: none;
+  display: flex;
+  width: 288px;
+  height: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  &.flipped{
+    transform: rotateY( 180deg );
+  }
 }
 
-.card-item-wrapper-front, .card-item-wrapper-back {
-    width: 288px;
-    height: 400px;
-    background-color: white;
-    position: relative;
+.card-item-wrapper-front{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+}
+.card-item-wrapper-back{
+  width: 100%;
+  height: 100%;
+  background: blue;
+  transform: rotateY( 180deg );
+  backface-visibility: hidden;
+  position: absolute;
 }
 
 .card-item {

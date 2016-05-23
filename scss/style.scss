@@ -33,6 +33,7 @@ body{
   display: block;
   backface-visibility: hidden;
   position: absolute;
+  overflow: hidden;
 }
 
 .card-item-wrapper-front{
@@ -210,7 +211,9 @@ body{
 
    &__ingrediens-list {
        list-style: none;
-       width: 100%;
+       width: auto;
+       height: 300px;
+       overflow: auto;
 
        .checkbox-style {
            width: 250px;
@@ -222,12 +225,13 @@ body{
            border-radius: 50px;
            position: relative;
            display: inline-block;
+
         p{
           display: inline-block;
         }
+
         .checked{
           color: #b9b9b9;
-          text-decoration: line-through;
           transition: width 0.5s ease-in;
         }
 
@@ -240,6 +244,7 @@ body{
                border: 1px solid #b2b2b2;
                right: 0;
                top: 13px;
+
 
                &:after {
                    opacity: 0;

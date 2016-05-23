@@ -24,8 +24,12 @@ $(document).ready(function() {
         }
         list.append(checked).append(unchecked);
     })
-  $("label").click(function() {
-    $(this).parent().children("p").toggleClass("checked");
-    $(this).toggleClass("label-checked");
-  });
+    $("label").click(function() {
+        $(this).parent().children("p").toggleClass("checked");
+        $(this).toggleClass("label-checked");
+
+
+
+
+    });
 });

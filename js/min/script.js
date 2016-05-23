@@ -1,1 +1,1 @@
-$(document).ready(function(){console.log("Workflow-SCSS!");var e=new ProgressBar.Line(container,{strokeWidth:4,easing:"easeInOut",duration:1400,color:"#FFEA82",trailColor:"#eee",trailWidth:1,svgStyle:{width:"100%",height:"100%"}});e.animate(1)});
+$(document).ready(function(){console.log("Workflow-SCSS!"),$(".btn-ingredienser").click(function(){$(this).parents(".card-item-grid").toggleClass("flip")})});

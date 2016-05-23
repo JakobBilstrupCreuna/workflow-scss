@@ -24,6 +24,12 @@ body {
     -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg); }
 
+.card-item-wrapper-front, .card-item-wrapper-back {
+  display: block;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute; }
+
 .card-item-wrapper-front {
   width: 100%;
   height: 100%;
@@ -35,10 +41,7 @@ body {
   height: 100%;
   background: blue;
   -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  position: absolute; }
+          transform: rotateY(180deg); }
 
 .card-item__header-favorite {
   position: absolute;
@@ -92,7 +95,8 @@ body {
   font-weight: bold;
   color: #746e6e;
   -webkit-transition: all .1s ease-in-out 0s;
-  transition: all .1s ease-in-out 0s; }
+  transition: all .1s ease-in-out 0s;
+  cursor: pointer; }
   .card-item .btn:focus {
     outline: none; }
   .card-item .btn:hover {

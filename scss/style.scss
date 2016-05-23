@@ -25,6 +25,11 @@ body{
     transform: rotateY( 180deg );
   }
 }
+.card-item-wrapper-front, .card-item-wrapper-back{
+  display: block;
+  backface-visibility: hidden;
+  position: absolute;
+}
 
 .card-item-wrapper-front{
   width: 100%;
@@ -37,8 +42,6 @@ body{
   height: 100%;
   background: blue;
   transform: rotateY( 180deg );
-  backface-visibility: hidden;
-  position: absolute;
 }
 
 .card-item {
@@ -100,6 +103,7 @@ body{
     font-weight: bold;
     color: $font-color;
     transition: all .1s ease-in-out 0s;
+    cursor: pointer;
     &:focus{
       outline: none;
     }

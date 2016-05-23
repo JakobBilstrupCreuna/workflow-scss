@@ -27,23 +27,39 @@
 				</div>
 			</div>
 		</li>
+
+		<!-- Card back -->
 		<li class="card-item-wrapper-back">
 			<div class="card-item">
-				<div class="card-item__header">
-					<div class="card-item__header-favorite">
-						<img class="card-item__header-favorite-img" style="" src="/stylesheets/icons/heart_favorite_like_plus_GREEN-01.svg" alt="favorite">
-					</div>
-					<img class="card-item__header-img" src="https://images.unsplash.com/photo-1428660386617-8d277e7deaf2?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=5e61ca9c4bfd810c01a0a2d1519f4291" alt="" />
+				<div class="card-item__header-back">
+					<select name="persons">
+  <option value="1">1 person</option>
+  <option value="2">2 personer</option>
+  <option value="3">3 personer</option>
+  <option value="4">4 personer</option>
+</select>
 				</div>
-				<div class="card-item__progressbar">
-					<span id="bar"></span>
-				</div>
-				<div class="card-item__content">
-					<h1 class="recipe-title">Kyllingsalat og hvidløgsbrød med ost</h1>
-
+				<div class="card-item__content-back">
+					<ul class="item">
+<li>
+  <label><input type="checkbox" id="one" />250 g flormelis</label>
+</li>
+<li>
+  <label><input type="checkbox" id="two" />125 g blødt smør</label>
+</li>
+<li>
+    <label><input type="checkbox" id="three" />1 tsk vaniljesukker</label>
+</li>
+<li>
+<label><input type="checkbox" id="four" />250 g lys og cremet peanutbutter</label>
+</li>
+<li>
+<label><input type="checkbox" id="five" />3 spsk mælk</label>
+</li>
+</ul>
 				</div>
 				<div class="card-item__buttons">
-					<button class="btn btn-send" type="button" name="button">Send</button><button class="btn btn-ingredienser" type="button" name="button">Ingredienser</button>
+					<button class="btn btn-send" type="button" name="button">Send</button><button class="btn btn-ingredienser" type="button" name="button">Tilbage</button>
 				</div>
 			</div>
 		</li>

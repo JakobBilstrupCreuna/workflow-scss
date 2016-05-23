@@ -23,8 +23,9 @@ gulp.task('compress', function() {
 // Opens a new browser that sync on changes
 gulp.task('browser-sync', function() {
    browserSync.init({
-       server: {
+      server: {
            baseDir: "./"
+
        }
    });
 });

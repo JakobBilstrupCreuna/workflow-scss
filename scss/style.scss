@@ -33,6 +33,7 @@ body{
   display: block;
   backface-visibility: hidden;
   position: absolute;
+  overflow: hidden;
 }
 
 .card-item-wrapper-front{
@@ -210,7 +211,9 @@ body{
 
    &__ingrediens-list {
        list-style: none;
-       width: 100%;
+       width: auto;
+       height: 300px;
+       overflow: auto;
 
        .checkbox-style {
            width: 250px;
@@ -225,9 +228,6 @@ body{
 
         p{
           display: inline-block;
-        }
-        .animate-strikethrough{
-          
         }
 
         .checked{

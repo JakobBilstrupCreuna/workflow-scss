@@ -35,7 +35,8 @@ body {
   display: block;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  position: absolute; }
+  position: absolute;
+  overflow: hidden; }
 
 .card-item-wrapper-front {
   width: 100%;
@@ -196,7 +197,9 @@ body {
 
 .card-item__ingrediens-list {
   list-style: none;
-  width: 100%; }
+  width: auto;
+  height: 300px;
+  overflow: auto; }
   .card-item__ingrediens-list .checkbox-style {
     width: 250px;
     height: auto;

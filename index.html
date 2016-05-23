@@ -1,9 +1,10 @@
 <head>
 	<title>NONE</title>
+	<link rel="stylesheet" href="/stylesheets/partials/normalize.css" media="screen" title="no title" charset="utf-8">
 	<link rel="stylesheet" href="/stylesheets/style.css" media="screen" title="no title" charset="utf-8">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+	<script type="text/javascript" src="js/min/progressbar.js"></script>
 	<script type="text/javascript" src="js/min/script.js" defer></script>
-	<script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.js" integrity="sha256-6HSLgn6Ao3PKc5ci8rwZfb//5QUu3ge2/Sw9KfLuvr8=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<ul class="card-item-grid">
@@ -36,40 +37,51 @@
 		<li class="card-item-wrapper-back">
 			<div class="card-item">
 				<div class="card-item__header-back">
-					<select name="persons">
-					  <option value="1">1 person</option>
-					  <option value="2">2 personer</option>
-					  <option value="3">3 personer</option>
-					  <option value="4">4 personer</option>
-					</select>
+<select class="card-item__select-person" name="persons">
+	<option value="1">1 person</option>
+	<option value="2">2 personer</option>
+	<option value="3">3 personer</option>
+	<option value="4">4 personer</option>
+</select>
 				</div>
 				<div class="card-item__content-back">
-					<ul class="item">
-						<li>
-						  <label><input type="checkbox" id="one" />250 g flormelis</label>
-						</li>
-						<li>
-						  <label><input type="checkbox" id="two" />125 g blødt smør</label>
-						</li>
-						<li>
-					    <label><input type="checkbox" id="three" />1 tsk vaniljesukker</label>
-						</li>
-						<li>
-							<label><input type="checkbox" id="four" />250 g lys og cremet peanutbutter</label>
-						</li>
-						<li>
-							<label><input type="checkbox" id="five" />3 spsk mælk</label>
-						</li>
-					</ul>
+<ul class="card-item__ingrediens-list">
+	<li>
+		<div ontouchend="this.onclick=fix" class="checkbox-style">
+			<input type="checkbox" value="None" id="one" name="check" />
+			<label for="one"></label><p>250 g flormelis</p>
+		</div>
+	</li>
+	<li>
+		<div class="checkbox-style">
+			<input type="checkbox" value="None" id="two" name="check" />
+			<label for="two"></label><p>125 g blødt smør</p>
+		</div>
+	</li>
+	<li>
+		<div class="checkbox-style">
+			<input type="checkbox" value="None" id="three" name="check" />
+			<label for="three"></label><p>1 tsk vaniljesukker</p>
+		</div>
+	</li>
+	<li>
+		<div class="checkbox-style">
+			<input type="checkbox" value="None" id="four" name="check" />
+			<label for="four"></label><p>250 g cremet peanutbutter</p>
+		</div>
+	</li>
+	<li>
+		<div class="checkbox-style">
+			<input type="checkbox" value="None" id="five" name="check" />
+			<label for="five"></label><p>3 spsk mælk</p>
+		</div>
+	</li>
+</ul>
 				</div>
 				<div class="card-item__buttons">
-					<button class="btn btn-send" type="button" name="button">Send</button><button class="btn btn-ingredienser" type="button" name="button">Tilbage</button>
+					<button class="btn btn-send" type="button" name="button">Send</button><button class="btn btn-back" type="button" name="button">Tilbage</button>
 				</div>
 			</div>
 		</li>
 	</ul>
-
-	<script type="text/javascript">
-
-	</script>
 </body>

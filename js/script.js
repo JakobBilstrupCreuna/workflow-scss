@@ -1,10 +1,27 @@
-$( document ).ready(function() {
+$(document).ready(function() {
+    console.log("Workflow-SCSS!");
 
+    $(".btn-ingredienser, .btn-back").click(function() {
+        $(this).parents('.card-item-grid').toggleClass("flipped");
+    });
 
-  console.log( "Workflow-SCSS!" );
+    // Ingredien list order script
+    // Variabler til listen!
+    var list = $(".card-item__ingrediens-list"),
+        itemOrder = list.children();
 
-  $(".btn-ingredienser, #btn-tilbage").click(function(){
-    $(this).parents('.card-item-grid').toggleClass("flipped");
-  });
+    list.on("click", ":checkbox", function() {
+        var i, checked = document.createDocumentFragment(),
+            unchecked = document.createDocumentFragment();
 
+        // i skifter position af itemOrder
+        for (i = 0; i < itemOrder.length; i++) {
+            if (itemOrder[i].getElementsByTagName("input")[0].checked) {
+                checked.appendChild(itemOrder[i]);
+            } else {
+                unchecked.appendChild(itemOrder[i]);
+            }
+        }
+        list.append(checked).append(unchecked);
+    })
 });
